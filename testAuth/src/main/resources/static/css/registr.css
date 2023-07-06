@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* чтобы контейнер */
+  align-items: center; /* был по центру */
+  background: #F0EB62;
+}
+/*это весь контейнер*/
+.container {
+    background: white;
+    max-width: 350px; /*ограничение контейнера по ширине*/
+    padding: 46px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.login-title {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+input{
+    border: none;
+    height: 40px;
+    font-size: 16px;
+    padding: 0 10px;
+    width: 100%;
+    border-radius: 50px;
+    background: #EEEBE3;
+    margin-bottom: 10px;
+}
+
+.input-block{
+    margin-bottom: 30px;
+}
+
+/*кнопки вход и регистр*/
+.main-button {
+    width: 100%;
+    height: 40px;
+    color: #000;
+    font-size: 18px;
+    background: #f0eb62;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 50px;
+}

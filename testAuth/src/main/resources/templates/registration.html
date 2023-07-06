@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/static/css/auth.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="login-title">Регистрация в системе</h1>
+        <form th:action="@{/registr}" id="registration-form" th:method="post">
+            <div class="registr-form-container">
+                <div class="input-block">
+                    <input id="name" name="name" placeholder="Имя" required th:value="${name}">
+                    <input id="surname" name="surname" placeholder="Фамилия" required th:value="${surname}">
+                    <input id="work_place" name="work_place" placeholder="Место работы" required th:value="${work_place}">
+                    <input type="email" id="email" name="email" placeholder="Почта" required th:value="${email}">
+                    <input id="username" name="username" required placeholder="Логин" th:value="${username}">
+                    <input type="password" id="password" name="password" placeholder="Пароль" required th:value="${password}">
+                </div>
+
+                <button class="main-button" onclick="document.getElementById('registration-form').submit()">
+                    Зарегистрироваться</button>
+
+                <!--    <button type="submit" onclick="document.getElementById('registration-form').submit()"-->
+                <!--            onclick="location.href='/login'">У меня уже есть аккаунт</button>-->
+                <!--    <button class="button-regular" onclick="location.href='/login'">Зарегистрироваться</button>-->
+            </div>
+        </form>
+    </div>
+</body>
+</html>

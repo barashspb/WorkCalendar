@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+  <link rel="stylesheet" href="/static/css/edit_user.css">
+</head>
+<body>
+
+<div class="container">
+  <h1 class="login-title">Редактирование профиля</h1>
+
+  <form th:action="@{/edit_user}" method="POST">
+    <div class="user-container" >
+
+        <input name="id" type="hidden" th:value="${foundUser.id}">
+
+        <input name="name" th:value="${foundUser.name}">
+
+        <input name="surname" th:value="${foundUser.surname}">
+
+        <input name="work_place" th:value="${foundUser.work_place}">
+
+        <input name="email" th:value="${foundUser.email}">
+
+        <input name="username" th:value="${foundUser.username}">
+
+      <button class="main-button" type="submit" >Сохранить</button>
+    </div>
+  </form>
+    <button class="back-button" onclick="location.href='/home'">Вернуться</button>
+
+</div>
+</body>
+</html>

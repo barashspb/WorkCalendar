@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Мой календарь</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Font Link for Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script src="/static/js/script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <button class="mini-button" onclick="location.href='/edit_user'"><img src="/static/user.png"></button>
+    <button class="mini-button" onclick="location.href='/logout'"><img src="/static/logout.png"></button>
+</header>
+
+<div class="wrapper">
+    <div class="container">
+        <div class="container-title">
+            Здравствуйте,
+        </div>
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <p class="current-date"></p>
+                <div class="icons">
+                    <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                    <span id="next" class="material-symbols-rounded">chevron_right</span>
+                </div>
+            </div>
+            <div class="calendar">
+                <ul class="weeks">
+                    <li>Вск</li>
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                </ul>
+                <ul class="days"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="active-container">
+        <div class="container-title current-date">
+            Сегодня
+            <script type="text/javascript">
+
+        var d = new Date();
+
+        var day=new Array("воскресенье:","понедельник:","вторник:",
+        "среда:","четверг:","пятница:","суббота:");
+
+        var month=new Array("января","февраля","марта","апреля","мая","июня",
+        "июля","августа","сентября","октября","ноября","декабря");
+
+        document.write(day[d.getDay()]+" " +d.getDate()+ " " + month[d.getMonth()]
+        + " " + d.getFullYear() + " г.");
+        </script>
+        </div>
+        <div class="active-container-body">
+            <button onclick="location.href='/new_labour_shift'">Создать смену</button>
+            <button onclick="location.href='/menu'">Меню</button>
+
+            <div class="show-labour" th:each="labour:${foundDates}">
+                <div class="username">
+                    ФИ
+                    <span th:text="${labour.username.getName()}"></span>
+                    <span th:text="${labour.username.getSurname()}"></span>
+                </div>
+                <div class="date" th:text="${labour.date}">
+                    дата
+                </div>
+                <div class="time_of_begin" th:text="${labour.time_of_begin}">
+                    начало
+                </div>
+                <div class="time_of_end" th:text="${labour.time_of_end}">
+                    конец
+                </div>
+                <div class="comment" th:text="${labour.comment}">
+                    коммент
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

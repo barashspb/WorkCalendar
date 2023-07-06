@@ -1,0 +1,29 @@
+  <!DOCTYPE html>
+  <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+      <meta charset="UTF-8">
+      <title>Создать</title>
+    <link rel="stylesheet" href="/static/css/edit_user.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="login-title">Создание новой смены</h1>
+      <form th:action="@{/new_labour_shift}" id="new_labour_shift-form" th:method="post">
+
+        <div class="new_labour_shift-form-container">
+
+          <div class="input-block">
+            <input id="date" name="date" required th:value="${date}" type="date">
+            <input id="time_of_begin" name="time_of_begin" required th:value="${time_of_begin}" type="time">
+            <input id="time_of_end" name="time_of_end" required th:value="${time_of_end}" type="time">
+            <input id="comment" name="comment" placeholder="Комментарий" required th:value="${comment}">
+          </div>
+
+          <button class="main-button" onclick="document.getElementById('new_labour_shift-form').submit()">Создать</button>
+          <button class="back-button" onclick="location.href='/home'">Отмена</button>
+        </div>
+      </form>
+
+    </div>
+  </body>
+  </html>
